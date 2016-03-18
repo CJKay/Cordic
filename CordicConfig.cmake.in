@@ -1,0 +1,5 @@
+set(CORDIC_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}")
+set(CORDIC_INCLUDE_DIRS "${CORDIC_CMAKE_DIR}/include")
+set(CORDIC_LIBRARIES "cordic")
+
+include("${CMAKE_CURRENT_LIST_DIR}/CordicTargets.cmake")
