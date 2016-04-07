@@ -5,4 +5,5 @@
  */
 
 #include "args.h"
+#include "asserts.h"
 #include "result.h"

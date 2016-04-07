@@ -5,5 +5,7 @@
  */
 
 struct cordic_result {
-	int dummy;
+	int line;
+	const char *file;
+	const char *fn;
 };
