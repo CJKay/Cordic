@@ -4,4 +4,5 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-#include "cordic/cordic.h"
+#include "args.h"
+#include "result.h"

@@ -4,4 +4,6 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-#include "cordic/cordic.h"
+struct cordic_result {
+	int dummy;
+};
