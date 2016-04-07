@@ -4,6 +4,12 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+#ifndef CORDIC_CORDIC_H
+#define CORDIC_CORDIC_H
+
 #include "args.h"
 #include "asserts.h"
 #include "result.h"
+#include "vargs.h"
+
+#endif

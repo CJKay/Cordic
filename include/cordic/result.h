@@ -4,8 +4,14 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+#ifndef CORDIC_RESULT_H
+#define CORDIC_RESULT_H
+
 struct cordic_result {
 	int line;
 	const char *file;
 	const char *fn;
+	const char *msg;
 };
+
+#endif
