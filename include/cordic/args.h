@@ -7,8 +7,6 @@
 #ifndef CORDIC_ARGS_H
 #define CORDIC_ARGS_H
 
-struct cordic_args {
-	int dummy;
-};
+#define cordic_args void
 
 #endif
