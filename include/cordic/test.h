@@ -7,10 +7,16 @@
 #ifndef CORDIC_TEST_H
 #define CORDIC_TEST_H
 
+#include <stdbool.h>
+
 #include "config.h"
 #include "result.h"
 
+struct cordic_suite;
+
 struct cordic_test {
+    struct cordic_suite *suite;
+
     const char *name;
     const char *file;
 
@@ -37,5 +43,8 @@ struct cordic_test {
     void _cordic_testfn_##NAME( \
         struct cordic_test *_cordic_mytest \
     )
+
+#define CORDIC_TEST_NAME (_cordic_mytest->name)
+#define CORDIC_TEST_FIXTURE (_cordic_mytest->suite->fixture)
 
 #endif
