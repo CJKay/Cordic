@@ -10,6 +10,7 @@
 #include "asserts.h"
 #include "config.h"
 #include "result.h"
+#include "suite.h"
 #include "test.h"
 #include "vargs.h"
 
