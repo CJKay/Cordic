@@ -13,21 +13,36 @@
 
 #define _cordic_assert2(COND, MSG) \
     if(!(COND)) { \
-        return (struct cordic_result) { \
-            .line = __LINE__, \
-            .file = __FILE__, \
-            .fn = __func__, \
-            .msg = MSG \
-        }; \
+        _cordic_mytest->failed = true; \
+        _cordic_mytest->error = \
+            (struct cordic_result) { \
+                __LINE__, \
+                #COND, \
+                (MSG) \
+            }; \
+        \
+        return; \
     }
 
 #define _cordic_assert1(COND) _cordic_assert2(COND, NULL)
 
 #define cordic_assert(...) _cordic_vargs(_cordic_assert, __VA_ARGS__)
 
-#define cordic_success \
-    return (struct cordic_result) { \
-        -1, __FILE__, __func__, NULL \
+#define _cordic_warn2(COND, MSG) \
+    if(COND) { \
+        _cordic_mytest->num_warnings++; \
+        if(_cordic_mytest->num_warnings <= CORDIC_MAX_WARNINGS) { \
+            _cordic_mytest->warnings[_cordic_mytest->num_warnings - 1] = \
+                (struct cordic_result) { \
+                    __LINE__, \
+                    #COND, \
+                    (MSG) \
+                }; \
+        } \
     }
+
+#define _cordic_warn1(COND) _cordic_warn2(COND, NULL)
+
+#define cordic_warn(...) _cordic_vargs(_cordic_warn, __VA_ARGS__)
 
 #endif

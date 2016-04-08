@@ -4,9 +4,11 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-#ifndef CORDIC_ARGS_H
-#define CORDIC_ARGS_H
+#ifndef CORDIC_CONFIG_H
+#define CORDIC_CONFIG_H
 
-#define cordic_args void
+#ifndef CORDIC_MAX_WARNINGS
+#define CORDIC_MAX_WARNINGS 8
+#endif
 
 #endif

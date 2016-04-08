@@ -17,6 +17,7 @@ add_prefix(sources "src/" ${sources})
 add_library("cordic" ${sources})
 
 target_include_directories("cordic" PUBLIC "include")
+target_include_directories("cordic" PUBLIC "include/cordic")
 
 ################################################################################
 # Configure the CMake config files.                                            #

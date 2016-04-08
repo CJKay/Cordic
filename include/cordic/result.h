@@ -7,10 +7,11 @@
 #ifndef CORDIC_RESULT_H
 #define CORDIC_RESULT_H
 
+#include <stdbool.h>
+
 struct cordic_result {
 	int line;
-	const char *file;
-	const char *fn;
+	const char *cond;
 	const char *msg;
 };
 

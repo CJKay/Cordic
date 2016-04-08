@@ -7,9 +7,10 @@
 #ifndef CORDIC_CORDIC_H
 #define CORDIC_CORDIC_H
 
-#include "args.h"
 #include "asserts.h"
+#include "config.h"
 #include "result.h"
+#include "test.h"
 #include "vargs.h"
 
 #endif
