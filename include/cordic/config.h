@@ -8,7 +8,7 @@
 #define CORDIC_CONFIG_H
 
 #ifndef CORDIC_MAX_WARNINGS
-#define CORDIC_MAX_WARNINGS 8
+#define CORDIC_MAX_WARNINGS 4
 #endif
 
 #endif
