@@ -25,6 +25,9 @@
 
 #define cordic_assert(...) _cordic_vargs(_cordic_assert, __VA_ARGS__)
 
-#define cordic_success return (struct cordic_result) { -1, NULL, NULL, NULL }
+#define cordic_success \
+    return (struct cordic_result) { \
+        -1, __FILE__, __func__, NULL \
+    }
 
 #endif
