@@ -20,7 +20,9 @@ struct cordic_test {
     const char *name;
     const char *file;
 
+    void (* setup)();
     void (* run)(struct cordic_test *);
+    void (* teardown)();
 
     unsigned int num_warnings;
     struct cordic_result warnings[CORDIC_MAX_WARNINGS];
@@ -29,7 +31,7 @@ struct cordic_test {
     struct cordic_result error;
 };
 
-#define cordic_test(NAME) \
+#define _cordic_test3(NAME, SETUP, TEARDOWN) \
     void _cordic_testfn_##NAME( \
         struct cordic_test *_cordic_mytest \
     ); \
@@ -37,14 +39,19 @@ struct cordic_test {
     struct cordic_test NAME = { \
         .name = #NAME, \
         .file = __FILE__, \
-        .run = _cordic_testfn_##NAME \
+        .setup = SETUP, \
+        .run = _cordic_testfn_##NAME, \
+        .teardown = TEARDOWN \
     }; \
     \
     void _cordic_testfn_##NAME( \
         struct cordic_test *_cordic_mytest \
     )
 
+#define _cordic_test1(NAME) _cordic_test3(NAME, NULL, NULL)
+
+#define cordic_test(...) _cordic_vargs(_cordic_test, __VA_ARGS__)
+
 #define CORDIC_TEST_NAME (_cordic_mytest->name)
-#define CORDIC_TEST_FIXTURE (_cordic_mytest->suite->fixture)
 
 #endif

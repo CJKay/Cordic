@@ -12,23 +12,31 @@
 struct cordic_suite {
     const char *name;
 
-    void *fixture;
-    void (* setup)(struct cordic_suite *);
-    void (* teardown)(struct cordic_suite *);
+    void (* setup)(void);
+    void (* teardown)(void);
 
     unsigned int num_tests;
+    unsigned int num_failed;
     struct cordic_test **tests;
 };
 
-#define cordic_suite(NAME, FIXTURE, SETUP, TEARDOWN, ...) \
+#define cordic_suite(NAME, SETUP, TEARDOWN, ...) \
     struct cordic_suite NAME = { \
         .name = #NAME, \
-        .fixture = FIXTURE, \
         .setup = SETUP, \
         .teardown = TEARDOWN, \
         .num_tests = sizeof((struct cordic_test *[]) { __VA_ARGS__ }) \
             / sizeof(struct cordic_test *), \
         .tests = (struct cordic_test *[]) { __VA_ARGS__ } \
     }
+#define cordic_setup_once(NAME) void NAME(void)
+#define cordic_teardown_once(NAME) void NAME(void)
+
+#define cordic_setup(NAME) void NAME(void)
+#define cordic_teardown(NAME) void NAME(void)
+
+#define CORDIC_SUITE_NAME (_cordic_mysuite->name)
+
+void cordic_run_suite(struct cordic_suite *suite);
 
 #endif

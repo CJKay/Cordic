@@ -1,1 +1,1 @@
-set(sources "dummy.c" PARENT_SCOPE)
+set(sources "suite.c" PARENT_SCOPE)
