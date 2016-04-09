@@ -4,6 +4,13 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+/**
+ * @file
+ * @brief Utilities for defining macros with a variable number of arguments.
+ *
+ * @see https://groups.google.com/forum/#!topic/comp.std.c/d-6Mj5Lko_s
+ */
+
 #ifndef CORDIC_VARGS_H
 #define CORDIC_VARGS_H
 

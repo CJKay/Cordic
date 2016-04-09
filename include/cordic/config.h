@@ -7,6 +7,12 @@
 #ifndef CORDIC_CONFIG_H
 #define CORDIC_CONFIG_H
 
+/**
+ * @def CORDIC_MAX_WARNINGS
+ * @brief The maximum number of warnings that should be stored by the
+ *        @ref cordic_test structure.
+ */
+
 #ifndef CORDIC_MAX_WARNINGS
 #define CORDIC_MAX_WARNINGS 4
 #endif

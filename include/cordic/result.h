@@ -7,9 +7,23 @@
 #ifndef CORDIC_RESULT_H
 #define CORDIC_RESULT_H
 
+/**
+ * @brief Stores details about assertion failures and warnings.
+ */
 struct cordic_result {
+    /**
+     * @brief The line number the condition failed on.
+     */
 	int line;
+
+	/**
+	 * @brief The condition that failed.
+	 */
 	const char *cond;
+
+	/**
+	 * @brief An optional message.
+	 */
 	const char *msg;
 };
 

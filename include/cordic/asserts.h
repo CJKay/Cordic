@@ -11,6 +11,15 @@
 
 #include "vargs.h"
 
+/**
+ * @internal
+ * @brief Generates an error in a test function if the condition evaluates to
+ *     @c false.
+ *
+ * @param COND The condition that must be evaluated to determine if an error
+ *     will be generated.
+ * @param MSG An error message. May be NULL.
+ */
 #define _cordic_assert2(COND, MSG) \
     if(!(COND)) { \
         _cordic_mytest->failed = true; \
@@ -24,10 +33,25 @@
         return; \
     }
 
+/**
+ * @internal
+ * @brief Generates an error in a test function if the condition evaluates to
+ *     @c false.
+ *
+ * @param COND The condition that must be evaluated to determine if an error
+ *     will be generated.
+ */
 #define _cordic_assert1(COND) _cordic_assert2(COND, NULL)
 
-#define cordic_assert(...) _cordic_vargs(_cordic_assert, __VA_ARGS__)
-
+/**
+ * @internal
+ * @brief Generates a warning in a test function if the condition evaluates to
+ *     @c true.
+ *
+ * @param COND The condition that must be evaluated to determine if a warning
+ *     will be generated.
+ * @param MSG A warning message. May be NULL.
+ */
 #define _cordic_warn2(COND, MSG) \
     if(COND) { \
         _cordic_mytest->num_warnings++; \
@@ -41,8 +65,39 @@
         } \
     }
 
+/**
+ * @internal
+ * @brief Generates a warning in a test function if the condition evaluates to
+ *     @c true.
+ *
+ * @param COND The condition that must be evaluated to determine if a warning
+ *     will be generated.
+ */
 #define _cordic_warn1(COND) _cordic_warn2(COND, NULL)
 
+#ifndef DOXYGEN
 #define cordic_warn(...) _cordic_vargs(_cordic_warn, __VA_ARGS__)
+#define cordic_assert(...) _cordic_vargs(_cordic_assert, __VA_ARGS__)
+#else
+/**
+ * @brief Generates a warning in a test function if the condition evaluates to
+ *     @c true.
+ *
+ * @param COND The condition that must be evaluated to determine if a warning
+ *     will be generated.
+ * @param MSG An optional warning message. This argument may be omitted.
+ */
+#define cordic_warn(COND, MSG)
+
+/**
+ * @brief Generates an error in a test function if the condition evaluates to
+ *     @c false.
+ *
+ * @param COND The condition that must be evaluated to determine if an error
+ *     will be generated.
+ * @param MSG An optional error message. This argument can be omitted.
+ */
+#define cordic_assert(COND, MSG)
+#endif
 
 #endif
